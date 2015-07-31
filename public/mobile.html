@@ -207,7 +207,32 @@ currentTime = currentHours+""+currentMinutes;
 
 
 if(currentTime>= 1541 || currentTime<=729){
-    $(".body").html("<p class='p'>The Current Time Is: "+currentHours+":"+currentMinutes);
+    if(currentHours == 13){
+        currentHours = 1;
+    }else if(currentHours == 14){
+        currentHours = 2;
+    }else if(currentHours == 15){
+        currentHours = 3;
+    }else if(currentHours == 16){
+        currentHours = 4;
+    }else if(currentHours == 17){
+        currentHours = 5;
+    }else if(currentHours == 18){
+        currentHours = 6;
+    }else if(currentHours == 19){
+        currentHours = 7;
+    }else if(currentHours == 20){
+        currentHours = 8;
+    }else if(currentHours == 21){
+        currentHours = 9;
+    }else if(currentHours == 22){
+        currentHours = 10;
+    }else if(currentHours == 23){
+        currentHours = 11;
+    }else if(currentHours == 24){
+        currentHours = 12;
+    }
+    $(".body").html("<p class='p'>The Current Time Is: <br>"+currentHours+":"+currentMinutes);
 }
 
 
