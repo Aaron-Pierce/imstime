@@ -131,13 +131,35 @@ function checkvars(){
         $(".p").css("margin-top",bodyHeight - textHeight);
 
 currentdate = new Date();
-currentHours = currentdate.getHours()
-currentMinutes = currentdate.getMinutes()
+currentHours = currentdate.getHours();
+currentMinutes = currentdate.getMinutes();
 timeLeft;
 currentTime = currentHours+""+currentMinutes;
 currentPeriod = 0;
 minleft = 0;
 
+    if(currentMinutes == 0){
+        currentMinutes = "00";
+    }
+    else if(currentMinutes == 1){
+        currentMinutes = "01";
+    }else if(currentMinutes == 2){
+        currentMinutes = "02";
+    }else if(currentMinutes == 3){
+        currentMinutes = "03";
+    }else if(currentMinutes == 4){
+        currentMinutes = "04";
+    }else if(currentMinutes == 5){
+        currentMinutes = "05";
+    }else if(currentMinutes == 6){
+        currentMinutes = "06";
+    }else if(currentMinutes == 7){
+        currentMinutes = "07";
+    }else if(currentMinutes == 8){
+        currentMinutes = "08";
+    }else if(currentMinutes == 9){
+        currentMinutes = "09";
+    }
 }
 checkvars();
 run();
