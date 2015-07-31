@@ -130,8 +130,8 @@ function checkvars(){
         $(".p").css("margin-top",bodyHeight - textHeight);
 
 currentdate = new Date();
-currentHours = currentdate.getHours()
-currentMinutes = currentdate.getMinutes()
+currentHours = currentdate.getHours().toString();
+currentMinutes = currentdate.getMinutes().toString();
 timeLeft;
 currentTime = currentHours+""+currentMinutes;
 currentPeriod = 0;
