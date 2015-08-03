@@ -9,6 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <script src="javascripts/bootstrap.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,6 +20,15 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+
+
+
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<link href="jquery-ui.css" rel="stylesheet">
+
 
     <!-- detecting a moble browser... pretty long for just that -->
     <script type="text/javascript">/**
@@ -43,43 +53,146 @@
 
 
 
-
-
     <style type="text/css" class="style">
     body{
     	background-color: #333;
     	color: #fff;
-    	text-align: center;
     	height: 100%;
     	width: 100%;
     }
-
-    p{
+    .body{
+        text-align: center;
+    }
+    .p{
     	left: 0;
     	font-size: 10em;
     	color: #337ab7;
         text-shadow: 12px 12px #292929;
     }
-
+    .glyphicon{
+        
+        display: inline-block;
+        margin-bottom: 0;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+.glyph{
+        
+        
+    }
+.cog{
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    margin-bottom: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+p{
+    display: inline-block;
+}
+.themeP{
+    text-shadow: none;
+}
+.signature{
+    font-size: 1em;
+      position: fixed;
+        bottom: 0;
+        right: 0;
+    text-shadow: none;
+    color: #337ab7;
+}
     </style>
+<style type="text/css" class="theme">
 
+
+</style>
+  
   </head>
-  <body class="body">
-    
-</body>
-    
+  <body class="main">
+    <div class="popup" title="Options">
+        <input type="checkbox" aria-label="..." class="darkTheme">
+        <p class="themeP">Dark Theme</p>
+        <br>
+        <input type="checkbox" aria-label="..." class="boldTheme">
+        <p class="themeP">Bold Theme</p>
+    </div>
+    <div class="body text-center">
 
 
+
+
+
+    </div>
+    <div class="cog">
+    <span class="glyphicon glyphicon-cog form-control-feedback" aria-hidden="false"></span>
+    </div>
+    <p class="signature">Website created and developed by Aaron Pierce</p>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="javascripts/bootstrap.min.js"></script>
+    
 
 
     <script type="text/javascript">
     $(document).ready(function(){
+        var textHeight = $("h1").height()/2;
+        var bodyHeight = $(window).height()/2;
+      
+        $("h1").css("margin-top",bodyHeight-textHeight);
+
+
+
+    });
+
+
+
+
+
+    </script>
+  </body>
+    
+<script type="text/javascript">
+    $(".darkTheme").click(function(){
+        
+        if($(".darkTheme").is(':checked')){
+            $(".theme").html("body{background-color: black;color: white;font-family: Impact, Charcoal, sans-serif;}p{text-shadow: 12px 12px #696969;}");
+            $(".boldTheme").prop("checked", false);
+}else{
+    $(".theme").html("}");
+}
+     });
+
+    $(".boldTheme").click(function(){
+        
+        if($(".boldTheme").is(':checked')){
+            $(".darkTheme").prop("checked", false);
+            $(".theme").html("body{background-color: #333;color: white;font-family: Impact, Charcoal, sans-serif;}p{text-shadow: 12px 12px #696969;}");
+}else{
+    $(".theme").html("}");
+}
+     });
+    
+    
+
+
+    
+</script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    
+
+
+    <script type="text/javascript">
+    $(".popup").dialog({autoOpen: false, closeText: "hide"});
+    $(".cog").click(function(){
+   $(".popup").dialog("open");
+});
+
+    $(document).ready(function(){
     	var textHeight = $(".p").height()/2;
     	var bodyHeight = $(window).height()/2;
-    	console.log(textHeight + ", " + bodyHeight);
-    	console.log(bodyHeight-textHeight);
+    	
     	$(".p").css("margin-top",bodyHeight - textHeight);
 
 
@@ -94,8 +207,7 @@
     <script type="text/javascript">
 var textHeight = $(".p").height()/2;
         var bodyHeight = $(window).height()/2;
-        console.log(textHeight + ", " + bodyHeight);
-        console.log(bodyHeight-textHeight);
+  
         $(".p").css("margin-top",bodyHeight - textHeight);
 
 
@@ -125,8 +237,7 @@ var minleft;
 function checkvars(){
     var textHeight = $(".p").height()/2;
         var bodyHeight = $(window).height()/2;
-        console.log(textHeight + ", " + bodyHeight);
-        console.log(bodyHeight-textHeight);
+   
         $(".p").css("margin-top",bodyHeight - textHeight);
 
 currentdate = new Date();
@@ -166,8 +277,7 @@ function run(){
 
 var textHeight = $(".p").height()/2;
         var bodyHeight = $(window).height()/2;
-        console.log(textHeight + ", " + bodyHeight);
-        console.log(bodyHeight-textHeight);
+        
         $(".p").css("margin-top",bodyHeight - textHeight);
 
 currentTime = currentHours+""+currentMinutes;
@@ -476,8 +586,7 @@ if(timeLeft < 1){
 setInterval(function(){ 
     var textHeight = $(".p").height()/2;
         var bodyHeight = $(window).height()/2;
-        console.log(textHeight + ", " + bodyHeight);
-        console.log(bodyHeight-textHeight);
+      
         $(".p").css("margin-top",bodyHeight - textHeight);
 
     $(".style").css(".style","body{ background-color: #333; color: #fff; text-align: center; height: 100%; width: 100%; } p{ left: 0; font-size: 10em; color: #337ab7; text-shadow: 12px 12px #292929; }");
