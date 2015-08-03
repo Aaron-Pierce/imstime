@@ -117,6 +117,8 @@ p{
         <br>
         <input type="checkbox" aria-label="..." class="boldTheme">
         <p class="themeP">Bold Theme</p>
+        <br>
+        <button class="resetButton btn btn-info">Reset Theme</button>
     </div>
     <div class="body text-center">
 
@@ -172,7 +174,13 @@ p{
 }
      });
     
-    
+    $(".resetButton").click(function(){
+        $(".theme").html("");
+        $(".boldTheme").prop("checked", false);
+        $(".darkTheme").prop("checked", false);
+
+
+    });
 
 
     

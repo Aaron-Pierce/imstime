@@ -104,6 +104,9 @@ p{
     text-shadow: none;
     color: #337ab7;
 }
+.popup{
+    text-align: center;
+}
     </style>
 <style type="text/css" class="theme">
 
@@ -118,6 +121,8 @@ p{
         <br>
         <input type="checkbox" aria-label="..." class="boldTheme">
         <p class="themeP">Bold Theme</p>
+        <br>
+        <button class="resetButton btn btn-info">Reset Theme</button>
     </div>
     <div class="body text-center">
 
@@ -159,7 +164,7 @@ p{
             $(".theme").html("body{background-color: black;color: white;font-family: Impact, Charcoal, sans-serif;}p{text-shadow: 12px 12px #696969;}");
             $(".boldTheme").prop("checked", false);
 }else{
-    $(".theme").html("}");
+    $(".theme").html("");
 }
      });
 
@@ -169,9 +174,17 @@ p{
             $(".darkTheme").prop("checked", false);
             $(".theme").html("body{background-color: #333;color: white;font-family: Impact, Charcoal, sans-serif;}p{text-shadow: 12px 12px #696969;}");
 }else{
-    $(".theme").html("}");
+    $(".theme").html("");
 }
      });
+
+     $(".resetButton").click(function(){
+        $(".theme").html("");
+        $(".boldTheme").prop("checked", false);
+        $(".darkTheme").prop("checked", false);
+
+
+    });
     
     
 
