@@ -103,6 +103,15 @@ p{
     color: #337ab7;
 
 }
+.weather{
+    font-size: 1em;
+      position: fixed;
+        bottom: 2px;
+        left: 2;
+    text-shadow: none;
+    color: white;
+}
+
     </style>
 <style type="text/css" class="theme">
 
@@ -131,6 +140,7 @@ p{
     <span class="glyphicon glyphicon-cog form-control-feedback" aria-hidden="false"></span>
     </div>
     <p class="signature text-center">Website created and developed by Aaron Pierce</p>
+    <button class="weather btn btn-primary">Whats the weather like?</p>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     
 
@@ -182,7 +192,11 @@ p{
 
     });
 
+$(".weather").click(function(){
+window.location.assign("weather.html");
 
+
+});
     
 </script>
 
