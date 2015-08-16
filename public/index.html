@@ -147,7 +147,10 @@ p{
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     
 <script type="text/javascript">
-
+$.getJSON("http://jsonip.appspot.com?callback=?",
+    function(data){
+       alert( "Your ip: " + data.ip);
+  });
 
 
 </script>
