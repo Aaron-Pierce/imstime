@@ -29,6 +29,7 @@
 <script src="jquery-ui.js"></script>
 <link href="jquery-ui.css" rel="stylesheet">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+<script type="text/javascript" src="notify.js"></script>
 
     <!-- detecting a moble browser... pretty long for just that -->
     <script type="text/javascript">/**
@@ -115,6 +116,13 @@ p{
     text-shadow: none;
     color: white;
 }
+.notification{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10%;
+    width: 20%;
+}
     </style>
 <style type="text/css" class="theme">
 
@@ -143,14 +151,13 @@ p{
     <span class="glyphicon glyphicon-cog form-control-feedback" aria-hidden="false"></span>
     </div>
     <p class="signature">Website created and developed by Aaron Pierce</p>
-    
+    <div class="notification"></div>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     
 <script type="text/javascript">
-$.getJSON("http://jsonip.appspot.com?callback=?",
-    function(data){
-       alert( "Your ip: " + data.ip);
-  });
+$.get("http://ipinfo.io", function(response) {
+    console.log(response.ip);
+}, "jsonp");
 
 
 </script>
@@ -173,6 +180,7 @@ $.getJSON("http://jsonip.appspot.com?callback=?",
 
 
     </script>
+
   </body>
     
 <script type="text/javascript">
