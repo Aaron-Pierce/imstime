@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
 
 
   res.sendfile('./public/weather.html');
-
+  res.status(500).json({ error: 'message' })
 });
 
 module.exports = router;
