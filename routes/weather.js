@@ -1,9 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/weather', function(req, res, next) {
-  res.render('weather', { title: 'Express' });
+/* GET users listing. */
+router.get('/:dir/:file', function(req, res, next) {
+
+  var dir = req.params.dir,
+      file = req.params.file;
+
+  res.sendfile('./public/weather.html');
+
 });
 
 module.exports = router;
