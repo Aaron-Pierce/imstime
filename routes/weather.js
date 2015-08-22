@@ -8,7 +8,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
 
-  res.sendFile('./public/weather.html');
+  res.sendfile('./public/weather.html');
 });
 
 module.exports = router;
