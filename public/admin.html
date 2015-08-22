@@ -1,0 +1,106 @@
+<html>
+<head>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Bootstrap -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <script src="javascripts/bootstrap.min.js"></script>
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<link href="jquery-ui.css" rel="stylesheet">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+<script type="text/javascript" src="notify.js"></script>
+	<title>Admin panel</title>
+</head>
+<body>
+
+<p>Welcome, to the admin panel</p>
+<input class="form-control console" placeholder="Enter a command">
+<?php echo "My first PHP script!"; ?>  
+</body>
+
+<style type="text/css">
+p{
+	font-family: "Courier New", Courier, monospace;
+	color: #66ff00;
+	font-size: 3em;
+}
+body{
+	background-color: black;
+	text-align: center;
+}
+.command{
+	width: 70%;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var command;
+$(".console").keypress(function(e) {
+    if(e.which == 13) {
+    	command = $(".console").val();
+    	if(command.substring(0,6).includes("notify")){
+    		Write("asdf",command)
+    	}
+}
+});
+
+
+
+
+function Write(file, command)
+{
+	var s = command;
+	s = s.replace("notify(","");
+	s = s.replace(")","");
+    ie_writeFile("commands.txt", s);
+}
+
+
+function pizza(args){
+	$.notify(args, "info");
+}
+
+
+function executeFunctionByName(functionName, context /*, args */) {
+  var args = [].slice.call(arguments).splice(2);
+  var namespaces = functionName.split(".");
+  var func = namespaces.pop();
+  for(var i = 0; i < namespaces.length; i++) {
+    context = context[namespaces[i]];
+  }
+  return context[func].apply(this, args);
+}
+
+
+var ie_writeFile = function (fname, data) {
+    var fso, fileHandle;
+    fso = new ActiveXObject("Scripting.FileSystemObject");
+    fileHandle = fso.CreateTextFile(fname, true);
+    fileHandle.write(data);
+    fileHandle.close();
+  };
+
+var ie_readFile = function (fname) {
+    try {
+      fso = new ActiveXObject("Scripting.FileSystemObject");
+      var fso, filehandle, contents;
+      filehandle = fso.OpenTextFile(fname, 1);
+      contents = filehandle.ReadAll();
+      filehandle.Close();
+      return contents;
+    } catch (err) {
+      return null;
+    }
+  };
+
+
+
+
+
+</script>
+</html>

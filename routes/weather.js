@@ -8,8 +8,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
 
-  res.sendfile('./public/weather.html');
-  res.send('$.notify("afdsa")')
+  res.sendFile('./public/weather.html');
 });
 
 module.exports = router;
