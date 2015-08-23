@@ -166,6 +166,16 @@ $.get("http://ipinfo.io", function(response) {
 
     <script type="text/javascript">
     $(document).ready(function(){
+        if(document.cookie == "dark"){
+    $(".theme").html("body{background-color: black;color: white;font-family: Impact, Charcoal, sans-serif;}");
+}else if(document.cookie == "bold"){
+$(".theme").html("body{background-color: #333;color: white;font-family: Impact, Charcoal, sans-serif;}");
+}else{
+    $(".theme").html("");
+}
+
+
+
         var textHeight = $("h1").height()/2;
         var bodyHeight = $(window).height()/2;
       
@@ -189,8 +199,10 @@ $.get("http://ipinfo.io", function(response) {
         if($(".darkTheme").is(':checked')){
             $(".theme").html("body{background-color: black;color: white;font-family: Impact, Charcoal, sans-serif;}p{text-shadow: 12px 12px #696969;}");
             $(".boldTheme").prop("checked", false);
+            document.cookie = "dark"
 }else{
     $(".theme").html("");
+    document.cookie = "default"
 }
      });
 
@@ -199,8 +211,10 @@ $.get("http://ipinfo.io", function(response) {
         if($(".boldTheme").is(':checked')){
             $(".darkTheme").prop("checked", false);
             $(".theme").html("body{background-color: #333;color: white;font-family: Impact, Charcoal, sans-serif;}p{text-shadow: 12px 12px #696969;}");
+            document.cookie = "bold"
 }else{
     $(".theme").html("");
+    document.cookie = "default"
 }
      });
 
@@ -208,6 +222,7 @@ $.get("http://ipinfo.io", function(response) {
         $(".theme").html("");
         $(".boldTheme").prop("checked", false);
         $(".darkTheme").prop("checked", false);
+        document.cookie = "default"
 
 
     });

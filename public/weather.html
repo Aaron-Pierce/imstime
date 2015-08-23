@@ -51,23 +51,165 @@ p{
     font-size: 5em;
 }
 
+.span{
+    font-size: 0.5em;
+}
+.cog{
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    margin-bottom: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+.popup{
+    text-align: center;
+}
 
+.glyphicon{
+        
+        display: inline-block;
+        margin-bottom: 0;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+.glyph{
+        
+        
+    }
+.cog{
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    margin-bottom: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+p{
+    display: inline-block;
+}
+.themeP{
+    display: inline;
+    text-shadow: none;
+    font-size: 1em;
+}
+.signature{
+    font-size: 1em;
+      position: fixed;
+        bottom: 0;
+        right: 2px;
+    text-shadow: none;
+    color: #337ab7;
+}
+.popup{
+    text-align: center;
+}
+.weather{
+    font-size: 1em;
+      position: fixed;
+        bottom: 2px;
+        left: 2;
+    text-shadow: none;
+    color: white;
+}
+.notification{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10%;
+    width: 20%;
+}
     </style>
 <style type="text/css" class="buffer">
 
 
 </style>
-  
+  <style type="text/css" class="theme">
+
+
+</style>
   </head>
 <body>
 <div id="weather"></div>
 
+<div class="cog">
+    <span class="glyphicon glyphicon-cog form-control-feedback" aria-hidden="false"></span>
+    </div>
 
+<div class="popup" title="Options">
+        <input type="checkbox" aria-label="..." class="darkTheme">
+        <h1 class="themeP">Dark Theme</h1>
+        <br>
 
+        <input type="checkbox" aria-label="..." class="boldTheme">
+        <h1 class="themeP">Bold Theme</h1>
+        <br>
+        <button class="resetButton btn btn-info">Reset Theme</button>
+    </div>
 </body>
+
+
+<script type="text/javascript">
+ $(".darkTheme").click(function(){
+        
+        if($(".darkTheme").is(':checked')){
+            $(".theme").html("body{background-color: black;color: white;font-family: Impact, Charcoal, sans-serif;}");
+            $(".boldTheme").prop("checked", false);
+            document.cookie = "dark";
+}else{
+    $(".theme").html("");
+    document.cookie = "default";
+}
+     });
+
+    $(".boldTheme").click(function(){
+        
+        if($(".boldTheme").is(':checked')){
+            $(".darkTheme").prop("checked", false);
+            $(".theme").html("body{background-color: #333;color: white;font-family: Impact, Charcoal, sans-serif;}");
+            document.cookie = "bold";
+}else{
+    $(".theme").html("");
+    document.cookie = "default";
+}
+     });
+
+     $(".resetButton").click(function(){
+        $(".theme").html("");
+        $(".boldTheme").prop("checked", false);
+        $(".darkTheme").prop("checked", false);
+        document.cookie = "default";
+
+    });
+
+
+</script>
+
+<script type="text/javascript">
+ $(".popup").dialog({autoOpen: false, closeText: "hide"});
+    $(".cog").click(function(){
+   $(".popup").dialog("open");
+});
+
+</script>
+
+
 
 <script type="text/javascript">
 $(document).ready(function() {
+if(document.cookie == "dark"){
+    $(".theme").html("body{background-color: black;color: white;font-family: Impact, Charcoal, sans-serif;}");
+}else if(document.cookie == "bold"){
+$(".theme").html("body{background-color: #333;color: white;font-family: Impact, Charcoal, sans-serif;}");
+}else{
+    $(".theme").html("");
+}
+
+
+
 			var textHeight1 = $("p").height()/2;
         var bodyHeight1 = $(window).height()/2;
         var buffer1 = bodyHeight1-textHeight1
@@ -78,14 +220,13 @@ $(document).ready(function() {
     woeid: '',
     unit: 'f',
     success: function(weather) {
-    	if(weather.temp == weather.wind.chill && weather.temp == weather.heatindex){
+
+
+
+    	
     		console.log(weather.temp + ", " + weather.wind.chill + ", " + weather.heatindex);
-    		html = '<p> It is currently '+weather.temp+'&deg;'+weather.units.temp+' outside</p>';
-    	}else if(weather.temp < weather.heatindex){
-    		html = '<p> It is currently '+weather.temp+'&deg;'+weather.units.temp+' outside,  it feels like ' + weather.heatindex+'</p>';
-    	}else{
-    	html = '<p> It is currently '+weather.temp+'&deg;'+weather.units.temp+' outside,  it feels like ' + weather.wind.chill+'</p>';	
-    	}
+    		     html = '<p>' + weather.title + ':<br>' + weather.temp+'&deg;'+weather.units.temp+' outside with a high of:' + weather.high +'&deg;'+weather.units.temp+', and a low of' + weather.low +'&deg;'+weather.units.temp+ '<br> <br> <span class="span">Tomorrow has high of: ' + weather.forecast[1].high +'&deg;'+weather.units.temp+ " and a low of: " + weather.forecast[1].low +'&deg;'+weather.units.temp+ "</span></p>";
+    	
      
   
       $("#weather").html(html);
@@ -107,14 +248,7 @@ $(document).ready(function() {
     woeid: '',
     unit: 'f',
     success: function(weather) {
-     if(weather.temp == weather.wind.chill && weather.temp == weather.heatindex){
-     	console.log(weather.temp + ", " + weather.wind.chill + ", " + weather.heatindex);
-    		html = '<p> It is currently '+weather.temp+'&deg;'+weather.units.temp+' outside</p>';
-    	}else if(weather.temp < weather.heatindex){
-    		html = '<p> It is currently '+weather.temp+'&deg;'+weather.units.temp+' outside,  it feels like ' + weather.heatindex+'</p>';
-    	}else{
-    	html = '<p> It is currently '+weather.temp+'&deg;'+weather.units.temp+' outside,  it feels like ' + weather.wind.chill+'</p>';	
-    	}
+     html = '<p>' + weather.title + ':<br>' + weather.temp+'&deg;'+weather.units.temp+' outside with a high of:' + weather.high +'&deg;'+weather.units.temp+', and a low of' + weather.low +'&deg;'+weather.units.temp+ '<br> <br> <span class="span">Tomorrow has high of: ' + weather.forecast[1].high +'&deg;'+weather.units.temp+ " and a low of: " + weather.forecast[1].low +'&deg;'+weather.units.temp+ "</span></p>";
   
       $("#weather").html(html);
     },
