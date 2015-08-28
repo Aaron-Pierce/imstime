@@ -225,6 +225,18 @@ y = document.cookie = "backcolor= " +$(".backColor").val();
 
 
 });
+$(".resetButton").click(function(){
+        $(".theme").html("");
+        $(".boldTheme").prop("checked", false);
+        $(".darkTheme").prop("checked", false);
+        $(".customStyle").html("");
+        $(".textColor").val("337ab7");
+        $(".backColor").val("333333");
+        $(".shadowColor").val("");
+        $(".shadowSize").val("");
+        x = document.cookie = "color= " +"#337ab7";
+        y = document.cookie = "backcolor= " +"#333333";
+    });
 var color = getCookie("color");
 var back = getCookie("backcolor");
 $(".customStyle").html("p{color: "+ color + "; text-shadow: " + $(".shadowSize").val() + " #" +$(".shadowColor").val() + "}");
