@@ -30,7 +30,7 @@
 <link href="jquery-ui.css" rel="stylesheet">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
 <script type="text/javascript" src="notify.js"></script>
-
+<script type="text/javascript" src="jscolor/jscolor.js"></script>
     <!-- detecting a moble browser... pretty long for just that -->
     <script type="text/javascript">/**
  * jQuery.browser.mobile (http://detectmobilebrowser.com/)
@@ -56,18 +56,20 @@
 
     <style type="text/css" class="style">
     body{
-    	background-color: #333;
-    	color: #fff;
+    	
+    	color: #337ab7;
     	height: 100%;
     	width: 100%;
+        background-color: #333;
     }
     .body{
         text-align: center;
+
     }
     .p{
     	left: 0;
     	font-size: 10em;
-    	color: #337ab7;
+    	
         text-shadow: 12px 12px #292929;
     }
     .glyphicon{
@@ -123,12 +125,17 @@ p{
     height: 10%;
     width: 20%;
 }
+.customTheme{
+    display: none;
+}
     </style>
 <style type="text/css" class="theme">
 
 
 </style>
-  
+<style type="text/css" class="customStyle">
+
+</style>
   </head>
   <body class="main">
     <div class="popup" title="Options">
@@ -139,6 +146,28 @@ p{
         <p class="themeP">Bold Theme</p>
         <br>
         <button class="resetButton btn btn-info">Reset Theme</button>
+         <br>
+        <a href="#" class="openCustom">Custom Theme</a>
+        <div class="customTheme">
+        <br>
+        <br>
+        <p class="themeP">Custom Theme:</p>
+        <br>
+        <p class="themeP">Text Color:</p>
+        <input class="color textColor" value="#337ab7"></input>
+        <br>
+        <p class="themeP">Backgroud Color:</p>
+        <input class="color backColor" value="#333333"></input>
+        <br>
+        <p class="themeP">Text Shadow Color:</p>
+        <input class="color shadowColor" value="#333333"></input>
+        <br>
+        <p class="themeP">Text Shadow Size</p>
+        <input class="shadowSize" placeholder="horizPx verticalPx solidity1-20Px"></input>
+        <br>
+        <br>
+        <button class="saveButton btn btn-info">Save Theme</button>
+    </div>
     </div>
     <div class="body text-center">
 
@@ -175,10 +204,69 @@ $.get("http://ipinfo.io", function(response) {
 
 </script>
 
+<script type="text/javascript">
+$(".openCustom").click(function(){
+$(".customTheme").css("display", "initial")
 
+});
+
+
+</script>
+
+<script type="text/javascript">
+
+var x = document.cookie.color;
+var y = document.cookie.backcolor;
+var z = document.cookie;
+console.log(x + ", " + y)
+$(".saveButton").click(function(){
+    console.log("text-shadow: " + $(".shadowSize").val() + $(".shadowColor").val() + "}");
+    var textColor = $(".textColor").val();
+    var backColor = $(".backColor").val();
+$(".customStyle").html(".p{color: #"+ textColor + "; text-shadow: " + $(".shadowSize").val() + "; #" +$(".shadowColor").val() + "} .main{background-color: #" + backColor + "}");
+$(".main").css("background-color",backColor);
+x = document.cookie = "color= " +$(".textColor").val();
+y = document.cookie = "backcolor= " +$(".backColor").val();
+
+
+
+
+});
+
+     $(".resetButton").click(function(){
+        $(".theme").html("");
+        $(".boldTheme").prop("checked", false);
+        $(".darkTheme").prop("checked", false);
+        $(".customStyle").html("");
+        $(".textColor").val("337ab7");
+        $(".backColor").val("333333");
+        $(".shadowColor").val("");
+        $(".shadowSize").val("");
+        x = document.cookie = "color= " +"#337ab7";
+        y = document.cookie = "backcolor= " +"#333333";
+    });
+
+var color = getCookie("color");
+var back = getCookie("backcolor");
+$(".customStyle").html(".p{color: #"+ color + "; text-shadow: " + $(".shadowSize").val() + " #" +$(".shadowColor").val() + "} .main{background-color: #" + back + "}");
+$(".main").css("background-color",back);
+
+$(".textColor").val(color);
+$(".backColor").val(back);
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+</script>
 
     <script type="text/javascript">
-    $(document).ready(function(){
+   /* $(document).ready(function(){
         if(document.cookie == "dark"){
     $(".theme").html("body{background-color: black;color: white;font-family: Impact, Charcoal, sans-serif;}");
 }else if(document.cookie == "bold"){
@@ -187,7 +275,7 @@ $(".theme").html("body{background-color: #333;color: white;font-family: Impact, 
     $(".theme").html("");
 }
 
-
+*/
 
         var textHeight = $("h1").height()/2;
         var bodyHeight = $(window).height()/2;
@@ -196,7 +284,7 @@ $(".theme").html("body{background-color: #333;color: white;font-family: Impact, 
 
 
 
-    });
+ 
 
 
 
@@ -212,10 +300,10 @@ $(".theme").html("body{background-color: #333;color: white;font-family: Impact, 
         if($(".darkTheme").is(':checked')){
             $(".theme").html("body{background-color: black;color: white;font-family: Impact, Charcoal, sans-serif;}p{text-shadow: 12px 12px #696969;}");
             $(".boldTheme").prop("checked", false);
-            document.cookie = "dark"
+            
 }else{
     $(".theme").html("");
-    document.cookie = "default"
+    
 }
      });
 
@@ -224,21 +312,14 @@ $(".theme").html("body{background-color: #333;color: white;font-family: Impact, 
         if($(".boldTheme").is(':checked')){
             $(".darkTheme").prop("checked", false);
             $(".theme").html("body{background-color: #333;color: white;font-family: Impact, Charcoal, sans-serif;}p{text-shadow: 12px 12px #696969;}");
-            document.cookie = "bold"
+            
 }else{
     $(".theme").html("");
-    document.cookie = "default"
+    
 }
      });
 
-     $(".resetButton").click(function(){
-        $(".theme").html("");
-        $(".boldTheme").prop("checked", false);
-        $(".darkTheme").prop("checked", false);
-        document.cookie = "default"
 
-
-    });
     
     
 
@@ -676,5 +757,8 @@ checkvars();
 
 </script>
   
+  <style type="text/css">
+
+</style>
 
 </html>
