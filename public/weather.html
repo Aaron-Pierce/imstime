@@ -166,16 +166,16 @@ p{
         <h1 class="themeP">Custom Theme:</h1>
         <br>
         <h1 class="themeP">Text Color:</h1>
-        <input class="color textColor" value="#337ab7"></input>
+        <input class="color textColor" id="textColor" value="#337ab7"></input>
         <br>
         <h1 class="themeP">Backgroud Color:</h1>
-        <input class="color backColor" value="#333333"></input>
+        <input class="color backColor" id="backColor" value="#333333"></input>
         <br>
         <h1 class="themeP">Text Shadow Color:</h1>
-        <input class="color shadowColor" value="#333333"></input>
+        <input class="color shadowColor" id="shadowColor" value="333333"></input>
         <br>
         <h1 class="themeP">Text Shadow Size</h1>
-        <input class="shadowSize" placeholder="horizPx verticalPx solidity1-20Px"></input>
+        <input class="shadowSize" placeholder="horizPx verticalPx solidity1-20Px" id="shadowSize"></input>
         <br>
         <br>
         <button class="saveButton btn btn-info">Save Theme</button>
@@ -230,8 +230,8 @@ $(".resetButton").click(function(){
         $(".boldTheme").prop("checked", false);
         $(".darkTheme").prop("checked", false);
         $(".customStyle").html("");
-        $(".textColor").val("337ab7");
-        $(".backColor").val("333333");
+        document.getElementById('textColor').color.fromString('337ab7');
+        document.getElementById('backColor').color.fromString('333333');
         $(".shadowColor").val("");
         $(".shadowSize").val("");
         $(".body").css("background-color","#333");
