@@ -51,7 +51,13 @@
 
 
 
+<style type="text/css">
+.signature{
+margin-top: 0;
 
+}
+
+</style>
 
     <style type="text/css" class="style">
     body{
@@ -139,13 +145,13 @@ p{
         <h1 class="themeP">Custom Theme:</h1>
         <br>
         <h1 class="themeP">Text Color:</h1>
-        <input class="color textColor" id="textColor" value="#337ab7"></input>
+        <input class="color textColor" id="textColor" value="#337ab7" readonly></input>
         <br>
         <h1 class="themeP">Backgroud Color:</h1>
-        <input class="color backColor" id="backColor" value="#333333"></input>
+        <input class="color backColor" id="backColor" value="#333333" readonly></input>
         <br>
         <h1 class="themeP">Text Shadow Color:</h1>
-        <input class="color shadowColor" id="shadowColor" value="333333"></input>
+        <input class="color shadowColor" id="shadowColor" value="333333" readonly></input>
         <br>
         <h1 class="themeP">Text Shadow Size</h1>
         <input class="shadowSize" placeholder="horizPx verticalPx solidity1-20Px" id="shadowSize"></input>
@@ -165,7 +171,7 @@ p{
     <div class="cog">
     <span class="glyphicon glyphicon-cog form-control-feedback" aria-hidden="false"></span>
     </div>
-    <p class="signature text-center weather themeP p">Website created and developed by Aaron Pierce</p>
+    <p class="signature text-center weather" style="margin-top: 0em">Website created and developed by Aaron Pierce</p>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     
 
@@ -206,7 +212,8 @@ $(".saveButton").click(function(){
     console.log("text-shadow: " + $(".shadowSize").val() + $(".shadowColor").val() + "}");
     var textColor = $(".textColor").val();
     var backColor = $(".backColor").val();
-$(".customStyle").html(".p{color: #"+ textColor + "; text-shadow: " + $(".shadowSize").val() + "; #" +$(".shadowColor").val() + "} .main{background-color: #" + backColor + "}");
+$(".customStyle").html(".p{color: #"+ textColor + "; text-shadow: " + $(".shadowSize").val() + "; #" +$(".shadowColor").val() + "} .main{background-color: #" + backColor + "} .signature{color: #"+ textColor + "}");
+$(".signature").css("color", color);
 $(".main").css("background-color",backColor);
 x = document.cookie = "color= " +$(".textColor").val();
 y = document.cookie = "backcolor= " +$(".backColor").val();
@@ -231,7 +238,8 @@ y = document.cookie = "backcolor= " +$(".backColor").val();
 
 var color = getCookie("color");
 var back = getCookie("backcolor");
-$(".customStyle").html(".p{color: #"+ color + "; text-shadow: " + $(".shadowSize").val() + " #" +$(".shadowColor").val() + "} .main{background-color: #" + back + "}");
+$(".customStyle").html(".p{color: #"+ color + "; text-shadow: " + $(".shadowSize").val() + " #" +$(".shadowColor").val() + "} .main{background-color: #" + back + "} .signature{color: #"+ color + ";}");
+$(".signature").css("color", color);
 $(".main").css("background-color",back);
 
 $(".textColor").val(color);
@@ -275,7 +283,16 @@ $(".theme").html("body{background-color: #333;color: white;font-family: Impact, 
 
     </script>
 
-  </body>
+
+
+<style type="text/css">
+.signature{
+margin-top: 0;
+
+}
+
+</style>
+
 
 <script type="text/javascript">
     $(".darkTheme").click(function(){
