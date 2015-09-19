@@ -96,7 +96,9 @@ body{
     height: 25%;
     position: absolute;
     animation: rotate 60s infinite steps(60);
+    webkitanimation: rotate 60s infinite steps(60);
     transform-origin: 0% 100%;
+    webkit-transform-origin: 0% 100%;
     left: 49.875%;
     top: 25%;
 
@@ -106,7 +108,9 @@ body{
     height: 25%;
     position: absolute;
     animation: rotate 3600s infinite steps(60);
+    webkit-animation: rotate 3600s infinite steps(60);
     transform-origin: 50% 100%;
+    webkit-transform-origin: 50% 100%;
     left: 49.75%;
     top: 25%;
 
@@ -121,7 +125,9 @@ body{
     height: 15%;
     position: absolute;
     animation: rotate 43200s infinite linear;
+    webkitanimation: rotate 43200s infinite linear;
     transform-origin: 50% 100%;
+    webkit-transform-origin: 50% 100%;
     left: 49.5%;
     top: 36%;
  
@@ -201,9 +207,9 @@ var centerHeight = $(document).height()/2;
   var seconds = date.getSeconds();
   var minutes = date.getMinutes();
   var hours = date.getHours();
-$(".hourRotation").html(".hours-container{transform: rotate(" + hours * 30 + "deg)}");
-$(".minuteRotation").html(".minutes-container{transform: rotate(" + minutes * 6 + "deg)}");
-$(".secondRotation").html(".seconds-container{transform: rotate(" + hours * 6 + "deg)}");
+$(".hourRotation").html(".hours-container{transform: rotate(" + hours * 30 + "deg); webkit-transform: rotate("+ minutes * 30 + "deg);}}");
+$(".minuteRotation").html(".minutes-container{transform: rotate(" + minutes * 6 + "deg); webkit-transform: rotate("+ minutes * 6 + "deg);}");
+$(".secondRotation").html(".seconds-container{transform: rotate(" + hours * 6 + "deg); webkit-transform: rotate("+ minutes * 6 + "deg);}}");
 
 
 
