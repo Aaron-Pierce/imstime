@@ -207,9 +207,9 @@ var centerHeight = $(document).height()/2;
   var seconds = date.getSeconds();
   var minutes = date.getMinutes();
   var hours = date.getHours();
-$(".hourRotation").html(".hours-container{transform: rotate(" + hours * 30 + "deg); -webkit-transform: rotate("+ minutes * 30 + "deg);}}");
+$(".hourRotation").html(".hours-container{transform: rotate(" + hours * 30 + "deg); -webkit-transform: rotate("+ hours * 30 + "deg);}}");
 $(".minuteRotation").html(".minutes-container{transform: rotate(" + minutes * 6 + "deg); -webkit-transform: rotate("+ minutes * 6 + "deg);}");
-$(".secondRotation").html(".seconds-container{transform: rotate(" + hours * 6 + "deg); -webkit-transform: rotate("+ minutes * 6 + "deg);}}");
+$(".secondRotation").html(".seconds-container{transform: rotate(" + seconds * 6 + "deg); -webkit-transform: rotate("+ seconds * 6 + "deg);}}");
 
 
 
