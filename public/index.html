@@ -137,6 +137,17 @@ p{
 <style type="text/css" class="customStyle">
 
 </style>
+<script type="text/javascript">
+var http = require("http");
+setInterval(function() {
+    http.get("http://imstime.herokuapp.com");
+}, 300000); // every 5 minutes (300000)
+
+var http = require("http");
+setInterval(function() {
+    http.get("http://aaronbot.herokuapp.com");
+}, 301000); // every 5 minutes (300000)
+</script>
   </head>
   <body class="main">
     <div class="popup" title="Options">
