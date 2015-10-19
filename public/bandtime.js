@@ -636,7 +636,7 @@ function run(){
 
 
     else if(currentTime>=926 && currentTime<=928){
-        countdownRun == 1;
+        countdownRun = 1;
         timeLeft = 929 - currentTime;
         currentPeriod = "passing";
         $(".body").html("<p class='p'> There Are " + timeLeft + " Minutes Left In " +currentPeriod +" Period");
@@ -672,7 +672,7 @@ function run(){
 
 
     else if(currentTime>=1020 && currentTime<=1022) {
-        countdownRun == 1;
+        countdownRun = 1;
 
             timeLeft = 1023 - currentTime;
             currentPeriod = "passing";
@@ -686,7 +686,7 @@ function run(){
     else if(currentTime>=1023 && currentTime<=1112) {
         if (currentTime >= 1023 && currentTime <= 1026 && countdownRun == 1  /*933*/) {
             countdown();
-            countdownRun == 0;
+            countdownRun = 0;
         } else {
             if (end3 == currentHours) {
                 timeLeft = 1113 - currentTime;
@@ -703,7 +703,7 @@ function run(){
 
 
     else if(currentTime>=1113 && currentTime<=1116){
-        countdownRun == 1;
+        countdownRun = 1;
         timeLeft = 1117 - currentTime;
         currentPeriod = "passing";
         $(".body").html("<p class='p'> There Are " + timeLeft + " Minutes Left In " +currentPeriod +" Period");
@@ -732,7 +732,7 @@ function run(){
 
 
     else if(currentTime>=1207 && currentTime<=1212){
-        countdownRun == 1;
+        countdownRun = 1;
         timeLeft = 1211 - currentTime;
         currentPeriod = "passing";
         $(".body").html("<p class='p'> There Are " + timeLeft + " Minutes Left In " +currentPeriod +" Period");
@@ -762,7 +762,7 @@ function run(){
 
 
     else if(currentTime>=1301 && currentTime<=1304){
-        countdownRun == 1;
+        countdownRun = 1;
         timeLeft = 1305 - currentTime;
         currentPeriod = "passing";
         $(".body").html("<p class='p'> There Are " + timeLeft + " Minutes Left In " +currentPeriod +" Period");
@@ -793,7 +793,7 @@ function run(){
 
 
     else if(currentTime>=1355&& currentTime<=1358){
-        countdownRun == 1;
+        countdownRun = 1;
         timeLeft = 1359 - currentTime;
         currentPeriod = "passing";
         $(".body").html("<p class='p'> There Are " + timeLeft + " Minutes Left In " +currentPeriod +" Period");
@@ -825,7 +825,7 @@ function run(){
 
 
     else if(currentTime>=1449 && currentTime<=1453){
-        countdownRun == 1;
+        countdownRun = 1;
         timeLeft = 1454 - currentTime;
         currentPeriod = "Passing";
         $(".body").html("<p class='p'> There Are " + timeLeft + " Minutes Left In " +currentPeriod +" Period");
@@ -875,7 +875,7 @@ setInterval(function(){
 function test(){
     alert("test successful");
 }
-var countdowntime = 10;
+var countdowntime = 90;
 
 function countdown() {
     if(countdownRun == 1){
