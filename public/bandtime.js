@@ -3,6 +3,15 @@
  */
 
 
+var play = function(){
+ var sound = false;
+ /* Check if the sound is not instantiated yet */
+ if(!sound){
+  /* If its not instantiated, instantiate it here */
+  sound = new Audio('https://mfaucet.com/images/notification2.mp3');
+ }
+ sound.play();
+}
 
 
 
@@ -883,13 +892,13 @@ function countdown() {
     $(".body").html("<p class='p'> Class will start in " + countdowntime + " seconds");
     if (countdowntime == 1) {
         countdowntime = 90;
-        var audio = new Audio('fanfare3.wav');
-        audio.play();
+     play();
+
         countdownRun = 0;
         return;
 
     }
+
     }
 
-//your code to be executed after 1 seconds
 }
