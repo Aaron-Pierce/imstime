@@ -115,7 +115,7 @@
             font-size: 1em;
             position: fixed;
             bottom: 2px;
-            left: 2;
+            left: 2px;
             text-shadow: none;
             color: white;
         }
@@ -156,16 +156,16 @@
         <p class="themeP">Custom Theme:</p>
         <br>
         <p class="themeP">Text Color:</p>
-        <input class="color textColor" value="#337ab7"></input>
+        <input class="color textColor" value="#337ab7"/>
         <br>
         <p class="themeP">Backgroud Color:</p>
-        <input class="color backColor" value="#333333"></input>
+        <input> class="color backColor" value="#333333"/>
         <br>
         <p class="themeP">Text Shadow Color:</p>
-        <input class="color shadowColor" value="#333333"></input>
+        <input> class="color shadowColor" value="#333333"/>
         <br>
         <p class="themeP">Text Shadow Size</p>
-        <input class="shadowSize" placeholder="horizPx verticalPx solidity1-20Px"></input>
+        <input class="shadowSize" placeholder="horizPx verticalPx solidity1-20Px">
         <br>
         <br>
         <button class="saveButton btn btn-info">Save Theme</button>
@@ -264,6 +264,24 @@
             if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
         }
         return "";
+
+    }
+
+
+    var bgFlash = function(){
+        var redint = setInterval(function(){ $("body").css("background-color", "red") }, 100);
+        var blueint = setInterval(function(){ $("body").css("background-color", "blue") }, 150);
+        var whiteint = setInterval(function(){ $("body").css("background-color", "white") }, 200);
+        setTimeout(function() {
+            clearInterval(redint);
+            clearInterval(blueint);
+            clearInterval(whiteint);
+            $(".main").css("background-color",back);
+        }, 3000);
+
+    };
+    var bgf = function(){
+        bgFlash();
     }
 </script>
 

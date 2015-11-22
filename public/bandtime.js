@@ -893,7 +893,7 @@ function countdown() {
     if (countdowntime == 1) {
         countdowntime = 90;
      play();
-
+     bgf();
         countdownRun = 0;
         return;
 
@@ -901,4 +901,8 @@ function countdown() {
 
     }
 
+
+
 }
+
+
