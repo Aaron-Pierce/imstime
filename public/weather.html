@@ -1,0 +1,394 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>IMS Weather</title>
+
+    <!-- Bootstrap -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <script src="javascripts/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+
+
+
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<link href="jquery-ui.css" rel="stylesheet">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+<script type="text/javascript" src="jscolor/jscolor.js"></script>
+
+
+
+
+
+
+
+
+    <style type="text/css" class="style">
+    body{
+        background-color: #333;
+        color: #fff;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+    }
+p{
+    display: inline-block;
+    color: #337ab7;
+    font-size: 5em;
+}
+
+.span{
+    font-size: 0.5em;
+}
+.cog{
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    margin-bottom: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+.popup{
+    text-align: center;
+}
+
+.glyphicon{
+        
+        display: inline-block;
+        margin-bottom: 0;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+.glyph{
+        
+        
+    }
+.cog{
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    margin-bottom: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+p{
+    display: inline-block;
+}
+.themeP{
+    display: inline;
+    text-shadow: none;
+    font-size: 1em;
+}
+.signature{
+    font-size: 1em;
+      position: fixed;
+        bottom: 0;
+        right: 2px;
+    text-shadow: none;
+    color: #337ab7;
+}
+.popup{
+    text-align: center;
+}
+.weather{
+    font-size: 1em;
+      position: fixed;
+        bottom: 2px;
+        left: 2;
+    text-shadow: none;
+    color: white;
+}
+.notification{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10%;
+    width: 20%;
+}
+.customTheme{
+    display: none;
+}
+
+    </style>
+<style type="text/css" class="buffer">
+
+
+</style>
+<style type="text/css" class="customStyle">
+
+
+</style>
+  <style type="text/css" class="theme">
+
+
+</style>
+  </head>
+<body class="body">
+<div id="weather"></div>
+
+<div class="cog">
+    <span class="glyphicon glyphicon-cog form-control-feedback" aria-hidden="false"></span>
+    </div>
+
+<div class="popup" title="Options">
+        <input type="checkbox" aria-label="..." class="darkTheme">
+        <h1 class="themeP">Dark Theme</h1>
+        <br>
+
+        <input type="checkbox" aria-label="..." class="boldTheme">
+        <h1 class="themeP">Bold Theme</h1>
+        <br>
+       
+
+        <button class="resetButton btn btn-info">Reset Theme</button>
+        <br>
+        <a href="#" class="openCustom">Custom Theme</a>
+        <div class="customTheme">
+        <br>
+        <br>
+        <h1 class="themeP">Custom Theme:</h1>
+        <br>
+        <h1 class="themeP">Text Color:</h1>
+        <input class="color textColor" id="textColor" value="#337ab7"></input>
+        <br>
+        <h1 class="themeP">Backgroud Color:</h1>
+        <input class="color backColor" id="backColor" value="#333333"></input>
+        <br>
+        <h1 class="themeP">Text Shadow Color:</h1>
+        <input class="color shadowColor" id="shadowColor" value="333333"></input>
+        <br>
+        <h1 class="themeP">Text Shadow Size</h1>
+        <input class="shadowSize" placeholder="horizPx verticalPx solidity1-20Px" id="shadowSize"></input>
+        <br>
+        <br>
+        <button class="saveButton btn btn-info">Save Theme</button>
+
+    </div>
+
+    </div>
+</body>
+<script type="text/javascript">
+$(document).keydown(function(e) {
+if(e.keyCode == "65"){
+    
+}
+
+
+
+
+
+});
+</script>
+<script type="text/javascript">
+$(".openCustom").click(function(){
+$(".customTheme").css("display", "initial")
+
+});
+
+
+</script>
+
+<script type="text/javascript">
+var x = document.cookie.color;
+var y = document.cookie.backcolor;
+var z = document.cookie;
+console.log(x + ", " + y)
+$(".saveButton").click(function(){
+    console.log("text-shadow: " + $(".shadowSize").val() + $(".shadowColor").val() + "}");
+    var textColor = $(".textColor").val();
+    var backColor = $(".backColor").val();
+$(".customStyle").html("p{color: "+ textColor + "; text-shadow: " + $(".shadowSize").val() + " #" +$(".shadowColor").val() + "}");
+$(".body").css("background-color",backColor);
+x = document.cookie = "color= " +$(".textColor").val();
+y = document.cookie = "backcolor= " +$(".backColor").val();
+
+
+
+
+
+
+});
+$(".resetButton").click(function(){
+        $(".theme").html("");
+        $(".boldTheme").prop("checked", false);
+        $(".darkTheme").prop("checked", false);
+        $(".customStyle").html("");
+        document.getElementById('textColor').color.fromString('337ab7');
+        document.getElementById('backColor').color.fromString('333333');
+        $(".shadowColor").val("");
+        $(".shadowSize").val("");
+        $(".body").css("background-color","#333");
+        x = document.cookie = "color= " +"#337ab7";
+        y = document.cookie = "backcolor= " +"#333333";
+    });
+var color = getCookie("color");
+var back = getCookie("backcolor");
+$(".customStyle").html("p{color: "+ color + "; text-shadow: " + $(".shadowSize").val() + " #" +$(".shadowColor").val() + "}");
+$(".body").css("background-color",back);
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+</script>
+
+<script type="text/javascript">
+ $(".darkTheme").click(function(){
+        
+        if($(".darkTheme").is(':checked')){
+            $(".theme").html("body{background-color: black;color: white;font-family: Impact, Charcoal, sans-serif;}");
+            $(".boldTheme").prop("checked", false);
+            document.cookie = "dark";
+}else{
+    $(".theme").html("");
+    document.cookie = "default";
+}
+     });
+
+    $(".boldTheme").click(function(){
+        
+        if($(".boldTheme").is(':checked')){
+            $(".darkTheme").prop("checked", false);
+            $(".theme").html("body{background-color: #333;color: white;font-family: Impact, Charcoal, sans-serif;}");
+            document.cookie = "bold";
+}else{
+    $(".theme").html("");
+    document.cookie = "default";
+}
+     });
+
+     $(".resetButton").click(function(){
+        $(".theme").html("");
+        $(".boldTheme").prop("checked", false);
+        $(".darkTheme").prop("checked", false);
+        document.cookie = "default";
+
+    });
+
+
+</script>
+
+<script type="text/javascript">
+ $(".popup").dialog({autoOpen: false, closeText: "hide"});
+    $(".cog").click(function(){
+   $(".popup").dialog("open");
+});
+
+</script>
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+if(document.cookie == "dark"){
+    $(".theme").html("body{background-color: black;color: white;font-family: Impact, Charcoal, sans-serif;}");
+}else if(document.cookie == "bold"){
+$(".theme").html("body{background-color: #333;color: white;font-family: Impact, Charcoal, sans-serif;}");
+}else{
+    $(".theme").html("");
+}
+
+
+
+			var textHeight1 = $("p").height()/2;
+        var bodyHeight1 = $(window).height()/2;
+        var buffer1 = bodyHeight1-textHeight1
+      
+        $("p").css("margin-top",bodyHeight1-textHeight1);
+	 $.simpleWeather({
+    location: 'Norman, OK',
+    woeid: '',
+    unit: 'f',
+    success: function(weather) {
+
+
+
+    	
+    		console.log(weather.temp + ", " + weather.wind.chill + ", " + weather.heatindex);
+    		    html = '<p>' + weather.title + ':<br>' + weather.temp+'&deg;'+weather.units.temp+' outside with a high of: ' + weather.high +'&deg;'+weather.units.temp+', and a low of: ' + weather.low +'&deg;'+weather.units.temp+ '<br> <br> <span class="span">Tomorrow has high of: ' + weather.forecast[1].high +'&deg;'+weather.units.temp+ " and a low of: " + weather.forecast[1].low +'&deg;'+weather.units.temp+ "</span></p>";
+    	
+     
+  
+      $("#weather").html(html);
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+		var textHeight2 = $("p").height()/2;
+        var bodyHeight2 = $(window).height()/2;
+        var buffer2 = bodyHeight2-textHeight2
+      
+        $("p").css("margin-top",bodyHeight1-textHeight1);
+	  
+	setInterval(function(){
+
+  $.simpleWeather({
+    location: 'Norman, OK',
+    woeid: '',
+    unit: 'f',
+    success: function(weather) {
+     html = '<p>' + weather.title + ':<br>' + weather.temp+'&deg;'+weather.units.temp+' outside with a high of: ' + weather.high +'&deg;'+weather.units.temp+', and a low of: ' + weather.low +'&deg;'+weather.units.temp+ '<br> <br> <span class="span">Tomorrow has high of: ' + weather.forecast[1].high +'&deg;'+weather.units.temp+ " and a low of: " + weather.forecast[1].low +'&deg;'+weather.units.temp+ "</span></p>";
+  
+      $("#weather").html(html);
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+}, 1000);
+});
+
+</script>
+ <script type="text/javascript">
+    $(document).ready(function(){
+		var textHeight = $("p").height()/2;
+        var bodyHeight = $(window).height()/2;
+        var buffer = bodyHeight-textHeight
+      
+        $("p").css("margin-top",bodyHeight-textHeight);
+    	setInterval(function(){
+
+		var textHeight = $("p").height()/2;
+        var bodyHeight = $(window).height()/2;
+        var buffer = bodyHeight-textHeight
+      
+        $(".buffer").html("p{margin-top:" + buffer + " }");
+    }, 1000);
+
+    	});
+        
+
+
+
+    
+
+
+
+
+
+    </script>
+</html>

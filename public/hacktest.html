@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Testing hacking</title>
+</head>
+<body>
+	<input type="username" name="u">
+<input type="password" id="p" name="p"></input>
+ 
+<script src="https://code.jquery.com/jquery.js">
+</script>
+<script type="text/javascript">
+$("#p").keydown(function(e) {
+var cheese = $("#p").val();
+if(e.which == 13) {
+if(cheese == "aa"){
+	alert("success")
+}
+}
+
+});
+
+
+
+</script>
+</body>
+</html>

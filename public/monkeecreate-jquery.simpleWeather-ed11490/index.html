@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>dfafdas</title>
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+
+</head>
+<body>
+
+<div id="weather"></div>
+</body>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $.simpleWeather({
+    location: 'Austin, TX',
+    woeid: '',
+    unit: 'f',
+    success: function(weather) {
+      html = '<p>'+weather.temp+'&deg;'+weather.units.temp+'</p>';
+  
+      $("#weather").html(html);
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+});
+
+
+
+</script>
+</html>
