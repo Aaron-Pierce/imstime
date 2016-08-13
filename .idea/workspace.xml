@@ -28,8 +28,8 @@
       <file leaf-file-name="time.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/time.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -279,7 +279,7 @@
       <workItem from="1471106867450" duration="1203000" />
       <workItem from="1471108268323" duration="77000" />
       <workItem from="1471114320833" duration="203000" />
-      <workItem from="1471122863015" duration="47000" />
+      <workItem from="1471122863015" duration="89000" />
     </task>
     <task id="LOCAL-00001" summary="Created Teleprompter">
       <created>1446118893337</created>
@@ -477,11 +477,18 @@
       <option name="project" value="LOCAL" />
       <updated>1471108324329</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Changed the timer sound, and even possibly maybe fixed it?">
+      <created>1471122917762</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1471122917762</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2276000" />
+    <option name="totallyTimeSpent" value="2318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -888,8 +895,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/time.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
