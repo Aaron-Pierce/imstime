@@ -28,9 +28,11 @@
       <file leaf-file-name="time.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/time.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="204">
+              <caret line="77" column="56" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
+              <folding>
+                <element signature="e#1009#1050#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -279,7 +281,8 @@
       <workItem from="1471106867450" duration="1203000" />
       <workItem from="1471108268323" duration="77000" />
       <workItem from="1471114320833" duration="203000" />
-      <workItem from="1471122863015" duration="89000" />
+      <workItem from="1471122863015" duration="696000" />
+      <workItem from="1471198414564" duration="51000" />
     </task>
     <task id="LOCAL-00001" summary="Created Teleprompter">
       <created>1446118893337</created>
@@ -484,11 +487,18 @@
       <option name="project" value="LOCAL" />
       <updated>1471122917762</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Changed the timer sound, and even possibly maybe fixed it?">
+      <created>1471122955187</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1471122955187</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2318000" />
+    <option name="totallyTimeSpent" value="2976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -895,9 +905,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/time.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="204">
+          <caret line="77" column="56" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
+          <folding>
+            <element signature="e#1009#1050#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

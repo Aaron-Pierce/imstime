@@ -12,6 +12,19 @@ var freshmanEndTimeWed = ["0840", "0855", "0948", "1021", "1114", "1204", "1255"
 //make wed the same as normal, theres no difference for puny middle schoolers
 var upperStartTimeWed = ["0730", "0835", "0900","1008", "1112", "1207", "1302", "1406", "1510"];
 var upperEndTimeWed = ["0820", "0924", "1016", "1110", "1204", "1258", "1352", "1446", "1540"];
+/**
+ * Created by Aaron on 8/13/2016.
+ */
+var freshmanStartTime = ["0735", "0835", "0900","1008", "1104", "1159", "1302", "1406", "1510"];
+var freshmanEndTime = ["0840", "0855", "1000", "1104", "1159", "1254", "1358", "1502", "1605"];
+var freshmanStartTimeWed = ["0735", "0835", "0900", "0956", "1029", "1114", "1204", "1303", "1356", "1428", "1521"];
+var freshmanEndTimeWed = ["0840", "0855", "0948", "1021", "1114", "1204", "1255", "1348", "1420", "1513", "1605"];
+
+
+var upperStartTime = ["0735", "0835", "0900","1008", "1112", "1207", "1302", "1406", "1510"];
+var upperEndTime = ["0840", "0855", "1000", "1104", "1207", "1302", "1358", "1502", "1605"];
+var upperStartTimeWed = ["0735", "0835", "0900", "1001", "1059", "1149", "1244", "1331", "1419", "1516"];
+var upperEndTimeWed = ["0840", "0855", "0948", "1021", "1114", "1213", "1303", "1348", "1420", "1513", "1605"];
 var load = 0;
 var startTime;
 var endTime;
@@ -49,7 +62,8 @@ function main() {
         if(parseInt(currentTime) > startTime[x] && parseInt(currentTime) < endTime[x]){
             var timeleft = (parseInt(endTime[x]) - parseInt(currentTime));
             // console.log(currentHours[x] !== endTime[x].substring(0,2) + ", the hour ends during the same hour as the current one");
-            if(currentHours[x] !== endTime[x].substring(0,2)){
+            if(currentHours.substring(0,2) !== endTime[x].substring(0,2)){
+                console.log("The hour ends at a different hour than the current one. Subtracting 40.");
                 timeleft -= 40;
             }
             console.log("It is currently " + currentTime + ", the hour ends at " + endTime[x] + ". The hour ends in " + timeleft +  " minutes");
@@ -57,7 +71,7 @@ function main() {
             // console.log(parseInt(endTime[x]) - parseInt(currentTime) + "");
         }else if(parseInt(currentTime) > endTime[x] && parseInt(currentTime) < startTime[x+1]){
             var timeleft = parseInt(startTime[x+1]) - parseInt(currentTime);
-            if(currentHours[x] !== startTime[x+1].substring(0,2)){
+            if(currentHours.substring(0,2) !== startTime[x+1].substring(0,2)){
                 timeleft -= 40;
             }
             console.log("It is currently passing period, the next hour begins at " +startTime[x+1]+ " and that is in " + timeleft + " minutes");
@@ -104,13 +118,13 @@ function getTime() {
     var d = new Date();
     currentHours = d.getHours().toString();
     if(currentHours.length === 1){
-        currentHours = " " + currentHours;
+        currentHours = "0" + currentHours;
     }
     currentMinutes = d.getMinutes().toString();
     if(currentMinutes.length === 1){
-        currentMinutes = " " + currentHours;
+        currentMinutes = "0" + currentMinutes;
     }
-    currentTime = currentHours + "" + currentMinutes;
+    currentTime = currentHours + currentMinutes;
 }
 //TODO: uncomment this for prod
 setInterval(function () {
