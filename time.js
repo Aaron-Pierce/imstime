@@ -12,19 +12,6 @@ var freshmanEndTimeWed = ["0840", "0855", "0948", "1021", "1114", "1204", "1255"
 //make wed the same as normal, theres no difference for puny middle schoolers
 var upperStartTimeWed = ["0730", "0835", "0900","1008", "1112", "1207", "1302", "1406", "1510"];
 var upperEndTimeWed = ["0820", "0924", "1016", "1110", "1204", "1258", "1352", "1446", "1540"];
-/**
- * Created by Aaron on 8/13/2016.
- */
-var freshmanStartTime = ["0735", "0835", "0900","1008", "1104", "1159", "1302", "1406", "1510"];
-var freshmanEndTime = ["0840", "0855", "1000", "1104", "1159", "1254", "1358", "1502", "1605"];
-var freshmanStartTimeWed = ["0735", "0835", "0900", "0956", "1029", "1114", "1204", "1303", "1356", "1428", "1521"];
-var freshmanEndTimeWed = ["0840", "0855", "0948", "1021", "1114", "1204", "1255", "1348", "1420", "1513", "1605"];
-
-
-var upperStartTime = ["0735", "0835", "0900","1008", "1112", "1207", "1302", "1406", "1510"];
-var upperEndTime = ["0840", "0855", "1000", "1104", "1207", "1302", "1358", "1502", "1605"];
-var upperStartTimeWed = ["0735", "0835", "0900", "1001", "1059", "1149", "1244", "1331", "1419", "1516"];
-var upperEndTimeWed = ["0840", "0855", "0948", "1021", "1114", "1213", "1303", "1348", "1420", "1513", "1605"];
 var load = 0;
 var startTime;
 var endTime;
@@ -35,12 +22,7 @@ var currentHours;
 var currentMinutes;
 var currentTime;
 initGrade();
-if(wednesday()){
-    freshmanStartTime = freshmanStartTimeWed;
-    freshmanEndTime = freshmanEndTimeWed;
-    upperStartTime = upperStartTimeWed;
-    upperEndTime =  upperEndTimeWed;
-}
+
 
 var loadedGrade = localStorage.getItem("grade");
 var parser = document.createElement('a');
